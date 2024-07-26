@@ -30,8 +30,12 @@ def atk_base_build(attack=0, build=None):
         return 17 + atk_base_build(attack - 1)
     if 98 <= attack <= 100:
         return 20 + atk_base_build(attack - 1)
+    if 101 <= attack <= 110:
+        return 15 + atk_base_build(attack - 1)
+    if 111 <= attack <= 120:
+        return 20 + atk_base_build(attack - 1)    
     raise ValueError("SP build attack points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def _atk_bonus_atk(attack=0):
@@ -43,39 +47,63 @@ def _atk_bonus_atk(attack=0):
         return 10
     if 70 <= attack <= 99:
         return 15
-    if attack == 100:
+    if 100 <= attack <= 109:
         return 20
+    if 110 <= attack <= 119:
+        return 30    
+    if attack == 120:
+        return 40
     raise ValueError("SP build attack points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def _atk_bonus_hp(hp=0):
     if 0 <= hp <= 4:
         return 0
-    if 5 <= hp <= 40:
-        return hp // 5 * 5
-    if 41 <= hp <= 44:
-        return _atk_bonus_hp(40)
-    if 45 <= hp <= 70:
-        return (hp - 40) // 5 * 10 + _atk_bonus_hp(40)
-    if 71 <= hp <= 74:
-        return _atk_bonus_hp(70)
-    if 75 <= hp <= 85:
-        return (hp - 70) // 5 * 15 + _atk_bonus_hp(70)
-    if 86 <= hp <= 89:
-        return _atk_bonus_hp(85)
-    if hp == 90:
-        return 15 + _atk_bonus_hp(85)
-    if 91 <= hp <= 94:
-        return _atk_bonus_hp(90)
-    if hp == 95:
-        return 20 + _atk_bonus_hp(90)
-    if 96 <= hp <= 99:
-        return _atk_bonus_hp(95)
-    if hp == 100:
-        return 20 + _atk_bonus_hp(95)
+    if 5 <= hp <= 9:
+        return 5
+    if 10 <= hp <= 14:
+        return 10
+    if 15 <= hp <= 19:
+        return 15
+    if 20 <= hp <= 24:
+        return 20
+    if 25 <= hp <= 29:
+        return 25
+    if 30 <= hp <= 34:
+        return 30
+    if 35 <= hp <= 39:
+        return 35
+    if 40 <= hp <= 44:
+        return 40
+    if 45 <= hp <= 49:
+        return 50
+    if 50 <= hp <= 54:
+        return 60
+    if 55 <= hp <= 59:
+        return 70
+    if 60 <= hp <= 64:
+        return 80
+    if 65 <= hp <= 69:
+        return 90
+    if 70 <= hp <= 74:
+        return 100
+    if 75 <= hp <= 79:
+        return 115
+    if 80 <= hp <= 84:
+        return 130
+    if 85 <= hp <= 89:
+        return 145
+    if 90 <= hp <= 94:
+        return 160
+    if 95 <= hp <= 99:
+        return 180
+    if 100 <= hp <= 109:
+        return 200
+    if 110 <= hp <= 120:
+        return 230
     raise ValueError("SP build hp points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120") 
 
 
 def atk_bonus_build(attack=0, hp=0, build=None):
@@ -94,10 +122,10 @@ def ele_base_build(element=0, build=None):
         return 0
     if 1 <= element <= 50:
         return 1 + ele_base_build(element - 1)
-    if 51 <= element <= 100:
+    if 51 <= element <= 120:
         return 2 + ele_base_build(element - 1)
     raise ValueError("SP build element points must be an integer "
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def ele_bonus_build(element=0, build=None):
@@ -114,10 +142,14 @@ def ele_bonus_build(element=0, build=None):
         return 6
     if 90 <= element <= 99:
         return 8
-    if element == 100:
+    if 100 <= element <= 109:
         return 10
+    if 110 <= element <= 119:
+        return 12    
+    if element == 120:
+        return 14
     raise ValueError("SP build element points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def def_base_build(defense=0, build=None):
@@ -139,15 +171,23 @@ def def_base_build(defense=0, build=None):
     if 51 <= defense <= 60:
         return 6 + def_base_build(defense - 1)
     if 61 <= defense <= 70:
-        return 8 + def_base_build(defense - 1)
-    if 71 <= defense <= 80:
         return 7 + def_base_build(defense - 1)
+    if 71 <= defense <= 80:
+        return 8 + def_base_build(defense - 1)
     if 81 <= defense <= 90:
         return 9 + def_base_build(defense - 1)
-    if 91 <= defense <= 100:
+    if 91 <= defense <= 105:
         return 10 + def_base_build(defense - 1)
+    if 106 <= defense <= 110:
+        return 12 + def_base_build(defense - 1)
+    if 111 <= defense <= 115:
+        return 14 + def_base_build(defense - 1)
+    if 116 <= defense <= 119:
+        return 15 + def_base_build(defense - 1)
+    if defense == 100:
+        return 20 + def_base_build(defense - 1)
     raise ValueError("SP build defense points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def def_bonus_build(hp=0, build=None):
@@ -164,17 +204,19 @@ def def_bonus_build(hp=0, build=None):
         return 45
     if 90 <= hp <= 99:
         return 70
-    if hp == 100:
+    if 100 <= hp <= 114:
         return 100
+    if 115 <= hp <= 120:
+        return 135
     raise ValueError("SP build hp points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def sp_points(job, up):
     if not 0 <= job <= 99:
         raise ValueError("SP job must be an integer between 0 and 99")
-    if not 0 <= up <= 15:
-        raise ValueError("SP up must be an integer between 0 and 15")
+    if not 0 <= up <= 20:
+        raise ValueError("SP up must be an integer between 0 and 20")
 
     job_points = max(0, job - 20) * 3
     from datastructs import constants as cs
@@ -208,8 +250,14 @@ def atk_points(attack=0, build=None):
         return 9 + atk_points(attack - 1)
     if attack == 100:
         return 10 + atk_points(attack - 1)
+    if 101 <= attack <= 104:
+        return 3 + atk_points(attack - 1)
+    if 105 <= attack <= 119:
+        return 4 + atk_points(attack - 1)
+    if attack == 120:
+        return 5 + atk_points(attack - 1)       
     raise ValueError("SP build attack points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def def_points(defense=0, build=None):
@@ -236,8 +284,14 @@ def def_points(defense=0, build=None):
         return 8 + def_points(defense - 1)
     if defense == 100:
         return 10 + def_points(defense - 1)
+    if 101 <= defense <= 104:
+        return 3 + def_points(defense - 1)
+    if 105 <= defense <= 119:
+        return 4 + def_points(defense - 1)
+    if defense == 120:
+        return 5 + def_points(defense - 1)
     raise ValueError("SP build defense points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def ele_points(element=0, build=None):
@@ -260,8 +314,14 @@ def ele_points(element=0, build=None):
         return 6 + ele_points(element - 1)
     if 81 <= element <= 100:
         return 7 + ele_points(element - 1)
+    if 101 <= element <= 104:
+        return 3 + ele_points(element - 1)
+    if 105 <= element <= 119:
+        return 4 + ele_points(element - 1)
+    if element == 120:
+        return 5 + ele_points(element - 1)    
     raise ValueError("SP build element points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def hp_points(hp=0, build=None):
@@ -286,8 +346,14 @@ def hp_points(hp=0, build=None):
         return 7 + hp_points(hp - 1)
     if 91 <= hp <= 100:
         return 8 + hp_points(hp - 1)
+    if 101 <= hp <= 104:
+        return 3 + hp_points(hp - 1)
+    if 105 <= hp <= 119:
+        return 4 + hp_points(hp - 1)
+    if hp == 120:
+        return 5 + hp_points(hp - 1)    
     raise ValueError("SP build hp points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def crit_dmg_increase(attack=0, build=None):
@@ -300,10 +366,14 @@ def crit_dmg_increase(attack=0, build=None):
         return 10
     if 90 <= attack <= 99:
         return 30
-    if attack == 100:
+    if 100 <= attack <= 109:
         return 50
+    if 110 <= attack <= 119:
+        return 80
+    if attack == 120:
+        return 90
     raise ValueError("SP build attack points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def crit_prob_increase(attack=0, build=None):
@@ -316,10 +386,12 @@ def crit_prob_increase(attack=0, build=None):
         return 2
     if 80 <= attack <= 99:
         return 5
-    if attack == 100:
+    if 100 <= attack <= 119:
         return 8
+    if attack == 120:
+        return 10
     raise ValueError("SP build attack points must be an integer"
-                     "between 0 and 100")
+                     "between 0 and 120")
 
 
 def build_points(build):
