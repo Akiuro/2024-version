@@ -1266,7 +1266,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>110</number>
+                   <number>500</number>
                   </property>
                  </widget>
                 </item>
@@ -1419,7 +1419,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>1999</number>
+                   <number>19999</number>
                   </property>
                  </widget>
                 </item>
@@ -1445,7 +1445,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>1999</number>
+                   <number>19999</number>
                   </property>
                  </widget>
                 </item>
@@ -1631,7 +1631,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>200</number>
+                   <number>2000</number>
                   </property>
                  </widget>
                 </item>
@@ -1758,7 +1758,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>1999</number>
+                   <number>19999</number>
                   </property>
                  </widget>
                 </item>
@@ -2014,7 +2014,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>100</number>
+                   <number>120</number>
                   </property>
                  </widget>
                 </item>
@@ -2027,7 +2027,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>100</number>
+                   <number>120</number>
                   </property>
                  </widget>
                 </item>
@@ -2040,7 +2040,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>100</number>
+                   <number>120</number>
                   </property>
                  </widget>
                 </item>
@@ -2053,7 +2053,7 @@
                    </sizepolicy>
                   </property>
                   <property name="maximum">
-                   <number>100</number>
+                   <number>120</number>
                   </property>
                  </widget>
                 </item>
@@ -2306,7 +2306,7 @@
                         </sizepolicy>
                        </property>
                        <property name="maximum">
-                        <number>100</number>
+                        <number>200</number>
                        </property>
                       </widget>
                      </item>
